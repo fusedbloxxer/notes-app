@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-1 col-xs-1 col-sm-1"></div>
+            <div class="col-md-10 col-xs-10 col-sm-10">
+                <h3 class="round3" style="text-align:center;">Notes</h3>
+            </div>
+            <div class="col-md-1 col-xs-1 col-sm-1"></div>
+        </div>
+        <br/>
+        <table style="border: 1px solid black; alignment: center; text-align: center;margin-left: auto; margin-right: auto;">
+            <thead style="border: 1px solid black;">
+            <tr style="border: 1px solid black;">
+                <th style="border: 1px solid black; text-align: center; padding: 25px">Titlu</th>
+                <th style="border: 1px solid black; text-align: center; padding: 25px">Continut</th>
+                <th style="border: 1px solid black; text-align: center; padding: 25px">Data adaugare</th>
+                <th style="border: 1px solid black; text-align: center; padding: 25px">Este finalizata</th>
+                <th style="border: 1px solid black; text-align: center; padding: 25px">Detalii</th>
+                <th style="border: 1px solid black; text-align: center; padding: 25px">Editeaza</th>
+                <th style="border: 1px solid black; text-align: center; padding: 25px">Sterge</th>
+                <th style="border: 1px solid black; text-align: center; padding: 25px">Adauga</th>
+            </tr>
+            </thead>
+            <tbody style="border: 1px solid black;">
+            {% for note in notes_list %}
+                <tr style="border: 1px solid black;">
+                    <td style="border: 1px solid black; padding: 25px">
+                        {{ note.title }}
+                    </td>
+                    <td style="border: 1px solid black; padding: 25px">
+                        {{ note.content }}
+                    </td>
+                    <td style="border: 1px solid black; padding: 25px">
+                        {{ note.add_date }}
+                    </td>
+                    <td style="border: 1px solid black; padding: 25px">
+                        {% if note.is_complete %}
+                            Da
+                        {% else %}
+                            Nu
+                        {% endif %}
+                    </td>
+                    <td style="border: 1px solid black; padding: 25px">
+                        <div class="col-md-1 col-xs-1 col-sm-1">
+                            <a href="{% url 'notes:detail' note.pk %}">
+                                <button type="button" class="btn btn-info">
+                                    <span class="glyphicon glyphicon-open"></span>
+                                </button>
+                            </a>
+                        </div>
+                    </td>
+                    <td style="border: 1px solid black; padding: 25px">
+                        <div class="col-md-1">
+                            <a href="{% url 'notes:update' note.pk %}">
+                                <button type="button" class="btn btn-info">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                </button>
+                            </a>
+                        </div>
+                    </td>
+                    <td style="border: 1px solid black; padding: 25px">
+                        <div class="col-md-1">
+                            <a href="{% url 'notes:delete' note.pk %}">
+                                <button type="button" class="btn btn-danger">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </button>
+                            </a>
+                        </div>
+                    </td>
+                    <td style="border: 1px solid black; padding: 25px">
+                        <div class="col-md-1">
+                            <a href="{% url 'notes:create' %}">
+                                <button type="button" class="btn btn-success">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                </button>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
