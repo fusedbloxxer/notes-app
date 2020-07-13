@@ -54,7 +54,11 @@ ROOT_URLCONF = 'notes_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates/'), os.path.join(BASE_DIR, 'templates/notes/')],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates/'),
+            os.path.join(BASE_DIR, 'templates/notes/'),
+            os.path.join(BASE_DIR, 'templates/registration/'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -119,3 +123,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIR = (os.path.join(BASE_DIR), 'static')
+
+LOGIN_REDIRECT_URL = '/notes/'
+LOGOUT_REDIRECT_URL = '/home/'

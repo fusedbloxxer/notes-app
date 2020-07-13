@@ -10,11 +10,11 @@
                     {% csrf_token %}
                     <div class="form-row">
                         <div class="alert alert-warning">
-                            <h2>Esti sigur ca vrei sa stergi urmatoarea notita:</h2>
-                            <p><b>Titlu:</b> {{ object.title }}</p>
-                            <p><b>Continut:</b> {{ object.content }}</p>
-                            <p><b>Data adaugare:</b> {{ object.add_date }}</p>
-                            <p><b>Este finalizat</b>: {{ object.is_complete }}</p>
+                            <h2>Are you sure you want to delete this note:</h2>
+                            <p><b>Title:</b> {{ object.title }}</p>
+                            <p><b>Content:</b> {{ object.content }}</p>
+                            <p><b>Add Date:</b> {{ object.add_date }}</p>
+                            <p><b>It's Done</b>: {% if object.is_complete %} Yes {% else %} No {% endif %}</p>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-danger">

@@ -30,15 +30,9 @@
         <div class="row">
             <div class="col-md-1 col-xs-1 col-sm-1"></div>
             <div class="col-md-10 col-xs-10 col-sm-10">
-                <p><b>Continut:</b> {{ object.content }}</p>
-                <p><b>Data adaugare:</b> {{ object.add_date }}</p>
-                <p><b>Este finalizat</b>:
-                    {% if object.is_complete %}
-                        Da
-                    {% else %}
-                        Nu
-                    {% endif %}
-                </p>
+                <p><b>Content:</b> {{ object.content }}</p>
+                <p><b>Add Date:</b> {{ object.add_date }}</p>
+                <p><b>It's Done</b>: {% if object.is_complete %} Yes {% else %} No {% endif %}</p>
             </div>
             <div class="col-md-1 col-xs-1 col-sm-1"></div>
         </div>

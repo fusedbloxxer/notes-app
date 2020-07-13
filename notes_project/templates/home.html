@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1 style="text-align: center; padding-top: 30px">Welcome to my site!</h1>
+    {% if user.is_authenticated %}
+        <h2 style="text-align: center; padding-top: 30px">{{ user.username }}</h2>
+    {% else %}
+        <h2 style="text-align: center; padding-top: 30px">You must be authenticated.</h2>
+    {% endif %}
+{% endblock %}
