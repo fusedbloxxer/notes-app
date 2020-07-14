@@ -11,7 +11,15 @@
                 <th style="border: 1px solid black; text-align: center; padding: 25px">Details</th>
                 <th style="border: 1px solid black; text-align: center; padding: 25px">Edit</th>
                 <th style="border: 1px solid black; text-align: center; padding: 25px">Delete</th>
-                <th style="border: 1px solid black; text-align: center; padding: 25px">Create</th>
+                <th style="border: 1px solid black; padding: 25px">
+                    <div class="col-md-1">
+                        <a href="{% url 'notes:create' %}">
+                            <button type="button" class="btn btn-success">
+                                <span class="glyphicon glyphicon-plus"></span>
+                            </button>
+                        </a>
+                    </div>
+                </th>
             </tr>
             </thead>
             <tbody style="border: 1px solid black;">
